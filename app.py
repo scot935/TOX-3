@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_cors import CORS
 import os
 
 app = Flask(__name__)
-app.secret_key = 'your-secret-key'  # change in production!
+CORS(app, resources={r"/*": {"origins": "*"}})
+app.secret_key = 'UUU-3-B2026_CARD_COUSTMER88654_AUTH'
 
 # Dummy user
 USER = { 'username': 'UUU3', 'password': 'UUU-3-B2026_CARD' }
