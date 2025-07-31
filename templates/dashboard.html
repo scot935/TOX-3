@@ -356,12 +356,12 @@
         </section>
       </main>
 
-      <div
+      <!-- <div
         class="text-2xl font-bold text-cyan-400 md:text-3xl"
         style="text-align: center"
       >
         TradeWithJoseph️ Support
-      </div>
+      </div> -->
     </div>
 
     <script>
@@ -477,7 +477,7 @@
           ).toFixed(2)}`;
           currentPrice.textContent = `$${parseFloat(data.close).toFixed(2)}`;
 
-          fetch("https://web-production-d4127.up.railway.app/predict", {
+          fetch("https://web-production-eafe.up.railway.app/predict", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
