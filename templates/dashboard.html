@@ -27,8 +27,24 @@
         stroke-linecap: round;
       }
     </style>
+    <script>
+      // Force Android WebView to trigger mobile layout
+      if (
+        navigator.userAgent.includes("wv") ||
+        navigator.userAgent.includes("Android")
+      ) {
+        document.documentElement.style.zoom = "1.0";
+        document.body.style.width = "100%";
+        document.body.style.maxWidth = "100%";
+        document.body.style.margin = "0";
+        document.body.style.padding = "0";
+      }
+    </script>
   </head>
-  <body class="min-h-screen flex items-center justify-center p-4 select-none">
+  <body
+    style="min-height: 100vh; background: #0d0d0d"
+    class="min-h-screen flex items-center justify-center p-4 select-none"
+  >
     <div
       class="w-full max-w-6xl bg-gradient-to-tr from-[#111720] via-[#101519] to-[#0c121a] rounded-xl p-4 space-y-6 shadow-2xl border border-[#18202d80] md:p-6"
     >

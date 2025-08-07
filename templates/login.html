@@ -151,8 +151,21 @@
         }
       }
     </style>
+    <script>
+      // Force Android WebView to trigger mobile layout
+      if (
+        navigator.userAgent.includes("wv") ||
+        navigator.userAgent.includes("Android")
+      ) {
+        document.documentElement.style.zoom = "1.0";
+        document.body.style.width = "100%";
+        document.body.style.maxWidth = "100%";
+        document.body.style.margin = "0";
+        document.body.style.padding = "0";
+      }
+    </script>
   </head>
-  <body>
+  <body style="min-height: 100vh; background: #0d0d0d">
     <div class="background-lines">
       <div class="line"></div>
       <div class="line"></div>
