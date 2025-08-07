@@ -6,13 +6,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <link rel="icon" type="image/jpg" href="../static/logo.jpg" />
     <title>TrendVision Login</title>
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
-
     <style>
       * {
         margin: 0;
@@ -22,18 +20,32 @@
 
       html,
       body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
+        width: 100%;
         font-family: "DM Sans", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #0d0d0d, #121e2b);
+      }
+
+      .app-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 1rem;
+        position: relative;
+        z-index: 1;
       }
 
       .background-lines {
         position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         z-index: 0;
-        background: linear-gradient(135deg, #0d0d0d, #121e2b);
       }
 
       .background-lines .line {
@@ -70,18 +82,6 @@
         }
       }
 
-      .app-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        width: 100%;
-        position: relative;
-        z-index: 1;
-        padding: 1rem;
-        flex-direction: column;
-      }
-
       .login-container {
         background: rgba(20, 20, 20, 0.6);
         backdrop-filter: blur(10px);
@@ -91,6 +91,7 @@
         padding: 2.5rem 2rem;
         width: 100%;
         max-width: 400px;
+        z-index: 2;
       }
 
       .login-container h2 {
@@ -155,10 +156,19 @@
       @media (max-width: 480px) {
         .login-container {
           padding: 2rem 1.5rem;
-          margin: auto 0;
         }
       }
     </style>
+
+    <script>
+      // Fix viewport height bug in Android WebView
+      function fixHeight() {
+        document.querySelector(".app-wrapper").style.height =
+          window.innerHeight + "px";
+      }
+      window.addEventListener("resize", fixHeight);
+      window.addEventListener("load", fixHeight);
+    </script>
   </head>
 
   <body>
