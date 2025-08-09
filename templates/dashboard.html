@@ -570,9 +570,15 @@
                 : text1.classList.add("text-green-500");
               prediction.predicted === 0
                 ? downArrow.classList.remove("hidden")
-                : upArrow.classList.remove("hidden");
+                : upArrow.classList.add("hidden");
               prediction.predicted === 0
                 ? downArrow1.classList.remove("hidden")
+                : upArrow1.classList.add("hidden");
+              prediction.predicted === 1
+                ? downArrow.classList.add("hidden")
+                : upArrow.classList.remove("hidden");
+              prediction.predicted === 1
+                ? downArrow1.classList.add("hidden")
                 : upArrow1.classList.remove("hidden");
             })
             .catch((err) => {
