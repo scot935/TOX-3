@@ -7,7 +7,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 app.secret_key = 'UUU-3-B2026_CARD_COUSTMER88654_AUTH'
 
 # Dummy user
-USER = { 'username': 'UUU3', 'password': 'UUU-3-B2026_CARD_COUSTMER88654_AUTH' }
+USER = { 'username': 'UUU3', 'password': 'UUU-3-B2026_CARD_COUSTMER88654_AUTH_SECURE' }
 
 @app.route('/')
 def home():
