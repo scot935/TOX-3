@@ -455,9 +455,8 @@
         // Convert current time to minutes since midnight
         const currentMinutes = hours * 60 + minutes;
 
-        // Market hours in IST
-        const marketOpen = 19 * 60; // 7:00 PM IST => 1140 minutes
-        const marketClose = 2 * 60 + 30; // 2:30 AM IST // 1:30 AM IST => 90 minutes (next day)
+        const marketOpen = 20 * 60;
+        const marketClose = 2 * 60 + 30;
 
         let marketStatus = "";
 
