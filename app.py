@@ -7,32 +7,40 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 app.secret_key = 'UUU-3-B2026_CARD_COUSTMER88654_AUTH'
 
-# Dummy user (kept just in case you want it later)
-USER = {'username': 'UUU3', 'password': 'Michael00000'}
-
-def sanitize_input(value: str) -> str:
-    return value.strip()
-
-def is_valid_text(value: str) -> bool:
-    return bool(re.match(r"^[A-Za-z0-9@._-]{1,40}$", value))
+# Your real credentials
+USERNAME = 'UUU3'
+PASSWORD = 'Michael00000'
 
 @app.route('/')
 def home():
-    return redirect(url_for('dashboard'))  # directly go to dashboard
+    return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    # Login page still exists but immediately redirects to dashboard
-    return redirect(url_for('dashboard'))
+    if request.method == 'POST':
+        user = request.form.get('username')
+        pwd  = request.form.get('password')
+
+        # ←←← ONLY THIS PART IS ADDED BACK bro ←←←
+        if user == USERNAME and pwd == PASSWORD:
+            session['logged_in'] = True
+            return redirect(url_for('dashboard'))
+        else:
+            return "Wrong username or password bro! Go away."
+
+    return render_template('login.html')  # you already have this file
 
 @app.route('/dashboard')
 def dashboard():
-    # REMOVED THE LOGIN CHECK → everyone can see the dashboard
-    return render_template('dashboard.html', user="Guest")  # or any name you want
+    # Simple check - if not logged in → kick back to login
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    
+    return render_template('dashboard.html', user=USERNAME)
 
 @app.route('/logout')
 def logout():
-    session.pop('user', None)
+    session.pop('logged_in', None)
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
