@@ -461,17 +461,17 @@
         let marketStatus = "";
 
         // If currentMinutes is between 0:00 and 1:30 AM
-        if (currentMinutes <= marketClose || currentMinutes >= marketOpen) {
-          marketStatus = "Market Open";
-          fetchStockData();
-          setInterval(fetchStockData, 35000);
-        } else {
-          marketStatus = "Market Closed";
-        }
+        // if (currentMinutes <= marketClose || currentMinutes >= marketOpen) {
+        marketStatus = "Market Open";
+        fetchStockData();
+        setInterval(fetchStockData, 50000);
+        // } else {
+        //   marketStatus = "Market Closed";
+        // }
 
         return {
           istTime: ist.toLocaleTimeString(),
-          status: "Market Open",
+          status: marketStatus,
         };
       }
 
