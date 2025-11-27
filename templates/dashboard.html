@@ -94,126 +94,33 @@
 
       <main class="grid grid-cols-12 gap-6">
         <!-- Left Graph Container -->
-        <section
-          class="col-span-12 md:col-span-7 bg-[#18202d] p-6 rounded-lg border border-[#2c344a]"
-        >
-          <div class="flex items-center justify-between mb-3">
-            <h2 class="text-gray-300 text-sm font-semibold md:text-xl">
-              Past Performances
-            </h2>
-            <div
-              class="flex items-center text-cyan-400 font-semibold text-lg space-x-1"
-              id="text1"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 hidden"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="3"
-                id="down-arrow"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 hidden"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="3"
-                id="up-arrow"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M5 15l7-7 7 7"
-                />
-              </svg>
-              <span id="close-prediction"></span>
-            </div>
+        <section class="col-span-12 md:col-span-7 p-0 rounded-lg">
+          <!-- TradingView Widget START -->
+          <div class="tradingview-widget-container">
+            <div id="tradingview_tsla"></div>
+            <script
+              type="text/javascript"
+              src="https://s3.tradingview.com/tv.js"
+            ></script>
+            <script type="text/javascript">
+              new TradingView.widget({
+                width: "100%",
+                height: 400,
+                symbol: "NASDAQ:TSLA",
+                interval: "D",
+                timezone: "Etc/UTC",
+                theme: "dark",
+                style: "1",
+                locale: "en",
+                toolbar_bg: "#000000",
+                enable_publishing: false,
+                hide_top_toolbar: false,
+                hide_legend: false,
+                container_id: "tradingview_tsla",
+              });
+            </script>
           </div>
-
-          <!-- Chart -->
-          <svg
-            viewBox="0 0 400 180"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-label="TSLA Prediction vs Real - 6 Days"
-            role="img"
-          >
-            <!-- Y Axis -->
-            <g
-              stroke="#223344"
-              stroke-width="1"
-              font-size="10"
-              fill="#5a697f"
-              font-family="Inter, sans-serif"
-            >
-              <line x1="40" y1="30" x2="380" y2="30" />
-              <text x="5" y="34">355</text>
-              <line x1="40" y1="70" x2="380" y2="70" />
-              <text x="5" y="74">340</text>
-              <line x1="40" y1="110" x2="380" y2="110" />
-              <text x="5" y="114">325</text>
-              <line x1="40" y1="150" x2="380" y2="150" />
-              <text x="5" y="154">310</text>
-            </g>
-
-            <!-- X Axis Labels -->
-            <g
-              fill="#5a697f"
-              font-size="10"
-              font-family="Inter, sans-serif"
-              font-weight="600"
-              text-anchor="middle"
-            >
-              <text x="60" y="165">20</text>
-              <text x="60" y="177">Jun</text>
-              <text x="104" y="165">23</text>
-              <text x="104" y="177">Jun</text>
-              <text x="148" y="165">24</text>
-              <text x="148" y="177">Jun</text>
-              <text x="192" y="165">25</text>
-              <text x="192" y="177">Jun</text>
-              <text x="236" y="165">26</text>
-              <text x="236" y="177">Jun</text>
-              <text x="280" y="165">27</text>
-              <text x="280" y="177">Jun</text>
-            </g>
-
-            <!-- Real Data Dots -->
-            <g fill="#22d3ee">
-              <circle cx="60" cy="140" r="5" />
-              <circle cx="104" cy="100" r="5" />
-              <circle cx="148" cy="85" r="5" />
-              <circle cx="192" cy="80" r="5" />
-              <circle cx="236" cy="70" r="5" />
-              <circle cx="280" cy="90" r="5" />
-            </g>
-
-            <!-- Predicted Data Dots -->
-            <g fill="#a855f7">
-              <circle cx="60" cy="138" r="5" />
-              <circle cx="104" cy="102" r="5" />
-              <circle cx="148" cy="88" r="5" />
-              <circle cx="192" cy="82" r="5" />
-              <circle cx="236" cy="72" r="5" />
-              <circle cx="280" cy="92" r="5" />
-            </g>
-
-            <!-- Legend -->
-            <g font-family="Inter, sans-serif" font-size="12" fill="#5a697f">
-              <circle cx="320" cy="15" r="4" fill="#22d3ee" />
-              <text x="330" y="19">Real</text>
-              <circle cx="320" cy="35" r="4" fill="#a855f7" />
-              <text x="330" y="39">Predict</text>
-            </g>
-          </svg>
+          <!-- TradingView Widget END -->
         </section>
 
         <section
